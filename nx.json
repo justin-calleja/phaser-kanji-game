@@ -25,6 +25,13 @@
   "projects": {
     "webstore": {
       "tags": []
+    },
+    "kgame": {
+      "tags": []
+    },
+    "kgame-e2e": {
+      "tags": [],
+      "implicitDependencies": ["kgame"]
     }
   }
 }
