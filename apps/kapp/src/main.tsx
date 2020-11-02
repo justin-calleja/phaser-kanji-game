@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
-// import InputTextPlugin from 'phaser3-rex-plugins/plugins/inputtext-plugin.js';
 import BootScene from './scenes/Boot';
 import GameScene from './scenes/Game';
+import InputScene from './scenes/Input';
 
 const config = {
   backgroundColor: '#efefef',
@@ -12,10 +12,7 @@ const config = {
   dom: {
     createContainer: true,
   },
-  // By default: a Phaser scene is not active when you add that scene to the Phaser game config object.
-  // By default: Phaser will start the first scene in the Phaser game config object. (BootScene in this case).
-  // scene: [BootScene, TitleScene, GameScene, UIScene],
-  scene: [BootScene, GameScene],
+  scene: [BootScene, GameScene, InputScene],
   physics: {
     default: 'arcade',
     arcade: {
