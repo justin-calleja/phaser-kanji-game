@@ -26,12 +26,12 @@
     "webstore": {
       "tags": []
     },
-    "kgame": {
+    "kapp": {
       "tags": []
     },
-    "kgame-e2e": {
+    "kapp-e2e": {
       "tags": [],
-      "implicitDependencies": ["kgame"]
+      "implicitDependencies": ["kapp"]
     }
   }
 }
