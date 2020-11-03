@@ -11,11 +11,12 @@ export default class InputKana extends InputText {
     this.scene = scene;
 
     wkBind(this.node);
-    scene.input.keyboard.on('keydown-ENTER', this.onSubmit);
     scene.add.existing(this);
-  }
 
-  onSubmit = (e) => {
-    this.scene.events.emit(SUBMIT, e.target.value);
-  };
+    this.node.onkeyup = (e) => {
+      if (e.key === 'Enter') {
+        this.scene.events.emit(SUBMIT, e.target.value);
+      }
+    };
+  }
 }

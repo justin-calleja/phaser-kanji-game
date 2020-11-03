@@ -2,12 +2,15 @@ import Phaser from 'phaser';
 import InputKana from '../classes/InputKana';
 
 export default class Input extends Phaser.Scene {
-  constructor() {
+  constructor(...args) {
     super('Input');
+    console.log('in input scene constructor with args:', ...args);
   }
 
-  init() {
-    this.deactivate();
+  init({ isActive }) {
+    if (isActive === false) {
+      this.deactivate();
+    }
     this.gameScene = this.scene.get('Game');
   }
 

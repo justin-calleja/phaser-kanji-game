@@ -10,7 +10,7 @@ export default class Game extends Phaser.Scene {
   }
 
   init() {
-    this.scene.launch('Input', { isActive: true });
+    this.scene.launch('Input');
     this.inputScene = this.scene.get('Input');
   }
 
