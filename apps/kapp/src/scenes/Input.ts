@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { bind as wkBind } from 'wanakana';
 import InputKana from '../classes/InputKana';
 
 export default class Input extends Phaser.Scene {
@@ -8,13 +9,23 @@ export default class Input extends Phaser.Scene {
 
   init() {
     this.deactivate();
-
     this.gameScene = this.scene.get('Game');
   }
 
   create() {
+    this.enterKey = this.input.keyboard.addKey(
+      Phaser.Input.Keyboard.KeyCodes.ENTER
+    );
+
     this.setupUIElements();
     // this.setupEvents();
+  }
+
+  update() {
+    if (this.inputKana) {
+    }
+    // if (this.enterKey.isDown) {
+    // }
   }
 
   setupUIElements() {
@@ -39,7 +50,7 @@ export default class Input extends Phaser.Scene {
     const cursorVertcalMargin = (textBgHeight - 24) / 2;
     const cursorHorizontalMargin = 10;
 
-    this._inputKana = this.inputKana = new InputKana(
+    this.inputKana = new InputKana(
       this,
       cursorHorizontalMargin,
       this.scale.height - textBgHeight + cursorVertcalMargin,
@@ -54,6 +65,7 @@ export default class Input extends Phaser.Scene {
     );
     this.inputKana.setOrigin(0);
     this.inputKana.setFocus();
+    wkBind(this.inputKana.node);
   }
 
   // setupEvents() {
