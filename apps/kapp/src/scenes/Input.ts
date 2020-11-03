@@ -1,5 +1,4 @@
 import Phaser from 'phaser';
-import { bind as wkBind } from 'wanakana';
 import InputKana from '../classes/InputKana';
 
 export default class Input extends Phaser.Scene {
@@ -22,8 +21,8 @@ export default class Input extends Phaser.Scene {
   }
 
   update() {
-    if (this.inputKana) {
-    }
+    // if (this.inputKana) {
+    // }
     // if (this.enterKey.isDown) {
     // }
   }
@@ -65,15 +64,14 @@ export default class Input extends Phaser.Scene {
     );
     this.inputKana.setOrigin(0);
     this.inputKana.setFocus();
-    wkBind(this.inputKana.node);
   }
 
   // setupEvents() {
-  //   // // this.events.emit('updateScore', this.score);
-  //   // this.gameScene.events.on('updateScore', (coins) => {
-  //   //   this.scoreText.setText(`Coins: ${coins}`);
-  //   // });
-  //   // this.gameScene.events.on(FOCUS_INPUT, this.activate, this);
+  //   // this.events.emit('updateScore', this.score);
+  //   //   // this.gameScene.events.on('updateScore', (coins) => {
+  //   //   //   this.scoreText.setText(`Coins: ${coins}`);
+  //   //   // });
+  //   //   // this.gameScene.events.on(FOCUS_INPUT, this.activate, this);
   // }
 
   isActive() {

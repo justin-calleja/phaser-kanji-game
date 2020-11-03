@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import InputScene from './Input';
+import { SUBMIT } from '../utils/eventNames';
 
 export default class Game extends Phaser.Scene {
   inputScene: InputScene;
@@ -17,6 +18,10 @@ export default class Game extends Phaser.Scene {
     this.tabKey = this.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.TAB
     );
+
+    this.inputScene.events.on(SUBMIT, (text) => {
+      console.log('in GameScene handling user submit with text of:', text);
+    });
   }
 
   update() {
