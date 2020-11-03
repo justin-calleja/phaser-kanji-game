@@ -57,13 +57,7 @@ export default class Input extends Phaser.Scene {
       cursorHorizontalMargin,
       this.scale.height - textBgHeight + cursorVertcalMargin,
       this.scale.width - cursorHorizontalMargin * 2,
-      fontSize,
-      {
-        type: 'text',
-        text: '',
-        fontSize: `${fontSize}px`,
-        color: 'red',
-      }
+      fontSize
     );
     this.inputKana.setOrigin(0);
     this.inputKana.setFocus();
