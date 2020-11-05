@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
-import InputKana from '../classes/InputKana';
+// import InputKana from '../classes/InputKana';
+import UserInput from '../classes/UserInput';
 
 export default class Input extends Phaser.Scene {
   enterKey: Phaser.Input.Keyboard.Key;
@@ -35,10 +36,16 @@ export default class Input extends Phaser.Scene {
   }
 
   setupUIElements() {
+    this.userInput = new UserInput(this, '(Kun) 外');
+  }
+
+  oldsetupUIElements() {
+    const grey = 0x2d2d2d;
+    // const grey = 0x000000;
     const textBgHeight = 40;
     const textBg = this.add.graphics();
     // textBg.fillStyle(0xffffff, 0.7);
-    textBg.fillStyle(0x000000, 0.7);
+    textBg.fillStyle(grey, 0.7);
     textBg.fillRect(
       0,
       this.scale.height - textBgHeight,
@@ -90,6 +97,6 @@ export default class Input extends Phaser.Scene {
   }
 
   setFocus() {
-    this.inputKana.setFocus();
+    // this.inputKana.setFocus();
   }
 }

@@ -13,7 +13,7 @@ export default class InputKana extends Phaser.GameObjects.DOMElement {
     backgroundColor: 'transparent',
     border: 0,
     borderColor: 'transparent',
-    color: '#ffffff',
+    color: '#000000',
     fontSize: '24px',
     outline: 'none',
   };
