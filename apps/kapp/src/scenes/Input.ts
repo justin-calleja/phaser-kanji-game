@@ -2,6 +2,10 @@ import Phaser from 'phaser';
 import InputKana from '../classes/InputKana';
 
 export default class Input extends Phaser.Scene {
+  enterKey: Phaser.Input.Keyboard.Key;
+  gameScene: Phaser.Scene;
+  inputKana: InputKana;
+
   constructor(...args) {
     super('Input');
     console.log('in input scene constructor with args:', ...args);

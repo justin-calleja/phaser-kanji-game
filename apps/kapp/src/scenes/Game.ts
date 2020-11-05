@@ -4,6 +4,7 @@ import { SUBMIT } from '../utils/eventNames';
 
 export default class Game extends Phaser.Scene {
   inputScene: InputScene;
+  tabKey: Phaser.Input.Keyboard.Key;
 
   constructor() {
     super('Game');

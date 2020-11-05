@@ -21,7 +21,7 @@ export default class InputKana extends Phaser.GameObjects.DOMElement {
   constructor(scene: Scene, x, y, width, height, style = {}) {
     const element = document.createElement('input');
     element.type = 'text';
-    element.autocomplete = false;
+    element.autocomplete = 'off';
     element.spellcheck = false;
 
     super(scene, x, y, element, { ...InputKana.defaultStyle, ...style });
