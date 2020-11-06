@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "bgRect",
+  "type": "object",
+  "title": "bgRect",
+  "description": "A Rectangle used as a background for text to be rendered on.",
+  "required": ["height", "fillStyle"],
+  "properties": {
+    "height": {
+      "type": "number",
+      "description": "The height of the rectangle"
+    },
+    "width": {
+      "anyOf": [{ "type": "number" }, { "enum": ["full"] }],
+      "description": "The width of the rectangle. Supports 'full' for full screen width.",
+      "default": "full"
+    },
+    "fillStyle": {
+      "$ref": "fillStyleArgs.json"
+    }
+  }
+}

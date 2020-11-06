@@ -1,15 +1,13 @@
 import Phaser from 'phaser';
-// import InputKana from '../classes/InputKana';
-import UserInput from '../classes/UserInput';
+import AnswerUI from '../classes/AnswerUI';
+import QuestionUI from '../classes/QuestionUI';
 
 export default class Input extends Phaser.Scene {
-  enterKey: Phaser.Input.Keyboard.Key;
   gameScene: Phaser.Scene;
   inputKana: InputKana;
 
   constructor(...args) {
     super('Input');
-    console.log('in input scene constructor with args:', ...args);
   }
 
   init({ isActive }) {
@@ -20,67 +18,11 @@ export default class Input extends Phaser.Scene {
   }
 
   create() {
-    this.enterKey = this.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.ENTER
-    );
-
-    this.setupUIElements();
-    // this.setupEvents();
+    this.answerUI = new AnswerUI(this);
+    this.questionUI = new QuestionUI(this, '(Kun) 外');
   }
 
-  update() {
-    // if (this.inputKana) {
-    // }
-    // if (this.enterKey.isDown) {
-    // }
-  }
-
-  setupUIElements() {
-    this.userInput = new UserInput(this, '(Kun) 外');
-  }
-
-  oldsetupUIElements() {
-    const grey = 0x2d2d2d;
-    // const grey = 0x000000;
-    const textBgHeight = 40;
-    const textBg = this.add.graphics();
-    // textBg.fillStyle(0xffffff, 0.7);
-    textBg.fillStyle(grey, 0.7);
-    textBg.fillRect(
-      0,
-      this.scale.height - textBgHeight,
-      this.scale.width,
-      textBgHeight
-    );
-
-    this.add.existing(textBg);
-
-    // --------
-
-    const fontSize = 24;
-    // cursorVertcalMargin is the space between the cursor and the textBg. This space is placed at the top and bottom of the cursor,
-    // such that, (cursorVertcalMargin * 2) + fontSize === textBgHeight.
-    const cursorVertcalMargin = (textBgHeight - 24) / 2;
-    const cursorHorizontalMargin = 10;
-
-    this.inputKana = new InputKana(
-      this,
-      cursorHorizontalMargin,
-      this.scale.height - textBgHeight + cursorVertcalMargin,
-      this.scale.width - cursorHorizontalMargin * 2,
-      fontSize
-    );
-    this.inputKana.setOrigin(0);
-    this.inputKana.setFocus();
-  }
-
-  // setupEvents() {
-  //   // this.events.emit('updateScore', this.score);
-  //   //   // this.gameScene.events.on('updateScore', (coins) => {
-  //   //   //   this.scoreText.setText(`Coins: ${coins}`);
-  //   //   // });
-  //   //   // this.gameScene.events.on(FOCUS_INPUT, this.activate, this);
-  // }
+  update() {}
 
   isActive() {
     return this.scene.isActive() && this.scene.isVisible();
