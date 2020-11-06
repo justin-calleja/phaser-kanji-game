@@ -37,8 +37,4 @@ export default class Input extends Phaser.Scene {
     this.scene.setActive(false);
     this.scene.setVisible(false);
   }
-
-  setFocus() {
-    // this.inputKana.setFocus();
-  }
 }
