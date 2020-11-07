@@ -17,10 +17,10 @@ const config = {
     default: 'arcade',
     arcade: {
       debug: true,
-      gravity: {
-        // y: 5,
-        y: 0,
-      },
+      // gravity: {
+      //   // y: 5,
+      //   y: 0,
+      // },
     },
   },
   // plugins: {
