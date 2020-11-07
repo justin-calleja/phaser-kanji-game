@@ -1,22 +1,24 @@
 import Phaser from 'phaser';
-import config from '../config.json';
+import { UIConfig } from '../types';
 
 export default class QuestionUI {
   scene: Phaser.Scene;
+  rect: Phaser.GameObjects.Graphics;
+  text: Phaser.GameObjects.Text;
 
-  constructor(scene: Phaser.Scene, questionStr: string) {
-    const rectColor = parseInt(config.questionRect.fillStyle.color);
-    const rectAlpha = config.questionRect.fillStyle.alpha || 1;
+  constructor(scene: Phaser.Scene, uiConfig: UIConfig, questionStr: string) {
+    const rectColor = parseInt(uiConfig.questionRect.fillStyle.color);
+    const rectAlpha = uiConfig.questionRect.fillStyle.alpha || 1;
     const rectX = 0;
     const rectY =
       scene.scale.height -
-      config.answerRect.height -
-      config.questionRect.height;
+      uiConfig.answerRect.height -
+      uiConfig.questionRect.height;
     const rectWidth =
-      config.questionRect.width === 'full'
+      uiConfig.questionRect.width === 'full'
         ? scene.scale.width
-        : config.questionRect.width;
-    const rectHeight = config.questionRect.height;
+        : uiConfig.questionRect.width;
+    const rectHeight = uiConfig.questionRect.height;
 
     this.scene = scene;
     this.rect = scene.add.graphics();
@@ -24,12 +26,12 @@ export default class QuestionUI {
     this.rect.fillRect(rectX, rectY, rectWidth, rectHeight);
 
     this.text = scene.add.text(
-      rectX + config.questionText.positionRelativeToRectOrigin.x,
-      rectY + config.questionText.positionRelativeToRectOrigin.y,
+      rectX + uiConfig.questionText.positionRelativeToRectOrigin.x,
+      rectY + uiConfig.questionText.positionRelativeToRectOrigin.y,
       questionStr,
       {
-        fontSize: `${config.questionText.fontSizeNumber}px`,
-        fill: config.questionText.color,
+        fontSize: `${uiConfig.questionText.fontSizeNumber}px`,
+        fill: uiConfig.questionText.color,
       }
     );
   }

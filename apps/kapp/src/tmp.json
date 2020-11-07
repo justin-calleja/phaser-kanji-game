@@ -1,0 +1,27 @@
+{
+  "questionRect": {},
+  "questionText": {
+    "fontSizeNumber": 40,
+    "color": "#000",
+    "positionRelativeToRectOrigin": {
+      "x": 4,
+      "y": 4
+    }
+  },
+  "answerRect": {
+    "height": 40,
+    "width": "full",
+    "fillStyle": {
+      "color": "0x000000",
+      "alpha": 0.7
+    }
+  },
+  "answerText": {
+    "fontSizeNumber": 32,
+    "color": "#fff",
+    "positionRelativeToRectOrigin": {
+      "x": 10,
+      "y": 4
+    }
+  }
+}

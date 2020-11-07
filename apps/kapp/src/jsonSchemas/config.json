@@ -1,9 +1,10 @@
 {
   "$schema": "http://json-schema.org/schema#",
   "$id": "config",
+  "required": ["questionRect"],
   "properties": {
-    "quetionBgRect": {
-      "$ref": "bgRect.json"
+    "quetionRect": {
+      "$ref": "rect"
     }
   }
 }

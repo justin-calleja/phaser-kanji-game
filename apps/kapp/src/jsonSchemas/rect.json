@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "$id": "bgRect",
+  "$id": "rect",
   "type": "object",
-  "title": "bgRect",
+  "title": "Rectangle",
   "description": "A Rectangle used as a background for text to be rendered on.",
   "required": ["height", "fillStyle"],
   "properties": {
@@ -16,7 +16,7 @@
       "default": "full"
     },
     "fillStyle": {
-      "$ref": "fillStyleArgs.json"
+      "$ref": "fillStyleArgs"
     }
   }
 }

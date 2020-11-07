@@ -1,25 +1,31 @@
 import Phaser from 'phaser';
 import AnswerUI from '../classes/AnswerUI';
+import InputKana from '../classes/InputKana';
 import QuestionUI from '../classes/QuestionUI';
+import { UIConfig } from '../types';
 
 export default class Input extends Phaser.Scene {
   gameScene: Phaser.Scene;
   inputKana: InputKana;
+  uiConfig: UIConfig;
+  answerUI = AnswerUI;
+  questionUI = QuestionUI;
 
   constructor(...args) {
     super('Input');
   }
 
-  init({ isActive }) {
+  init({ uiConfig, isActive }: { uiConfig: UIConfig; isActive: boolean }) {
     if (isActive === false) {
       this.deactivate();
     }
+    this.uiConfig = uiConfig;
     this.gameScene = this.scene.get('Game');
   }
 
   create() {
-    this.answerUI = new AnswerUI(this);
-    this.questionUI = new QuestionUI(this, '(Kun) 外');
+    this.answerUI = new AnswerUI(this, this.uiConfig);
+    this.questionUI = new QuestionUI(this, this.uiConfig, '(Kun) 外');
   }
 
   update() {}
