@@ -23,29 +23,6 @@ const config = {
       // },
     },
   },
-  // plugins: {
-  //   global: [
-  //     {
-  //       key: 'rexInputTextPlugin',
-  //       plugin: InputTextPlugin,
-  //       start: true,
-  //     },
-  //     // ...
-  //   ],
-  // },
 };
 
 const game = new Phaser.Game(config);
-// game.add.plugin(PhaserInput.Plugin);
-
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-
-// import App from './app/app';
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );

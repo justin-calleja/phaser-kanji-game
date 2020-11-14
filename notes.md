@@ -39,3 +39,15 @@ this.input.keyboard.on('keydown', function (event) {
   }
 });
 ```
+
+---
+
+```sh
+inkscape ./svg-cards.svg -i 3_club -o ./cards-png/3_club.png
+```
+
+Rotate image 90 degrees to the left:
+```sh
+ sips -r -90 ./apps/kapp/src/assets/images/spaceRockets_001.png      
+ ```
+

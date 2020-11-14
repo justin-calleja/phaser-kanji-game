@@ -3,7 +3,7 @@ import { UIConfig } from '../types';
 
 export default class QuestionUI {
   scene: Phaser.Scene;
-  rect: Phaser.GameObjects.Graphics;
+  rect: Phaser.GameObjects.Rectangle;
   text: Phaser.GameObjects.Text;
 
   constructor(scene: Phaser.Scene, uiConfig: UIConfig, questionStr: string) {
@@ -21,9 +21,9 @@ export default class QuestionUI {
     const rectHeight = uiConfig.questionRect.height;
 
     this.scene = scene;
-    this.rect = scene.add.graphics();
-    this.rect.fillStyle(rectColor, rectAlpha);
-    this.rect.fillRect(rectX, rectY, rectWidth, rectHeight);
+    this.rect = scene.add
+      .rectangle(rectX, rectY, rectWidth, rectHeight, rectColor, rectAlpha)
+      .setOrigin(0);
 
     this.text = scene.add.text(
       rectX + uiConfig.questionText.positionRelativeToRectOrigin.x,

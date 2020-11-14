@@ -22,7 +22,7 @@ interface Rect {
 }
 
 interface Text {
-  fontSize: number;
+  fontSizeNumber: number;
   color: string;
   positionRelativeToRectOrigin: Vect2;
 }

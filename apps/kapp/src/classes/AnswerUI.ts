@@ -4,7 +4,7 @@ import { UIConfig } from '../types';
 
 export default class AnswerUI {
   scene: Phaser.Scene;
-  rect: Phaser.GameObjects.Graphics;
+  rect: Phaser.GameObjects.Rectangle;
   input: InputKana;
 
   constructor(scene: Phaser.Scene, uiConfig: UIConfig) {
@@ -19,9 +19,9 @@ export default class AnswerUI {
     const rectHeight = uiConfig.answerRect.height;
 
     this.scene = scene;
-    this.rect = scene.add.graphics();
-    this.rect.fillStyle(rectColor, rectAlpha);
-    this.rect.fillRect(rectX, rectY, rectWidth, rectHeight);
+    this.rect = scene.add
+      .rectangle(rectX, rectY, rectWidth, rectHeight, rectColor, rectAlpha)
+      .setOrigin(0);
 
     this.input = new InputKana(
       scene,
