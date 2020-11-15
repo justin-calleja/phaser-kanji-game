@@ -1,6 +1,6 @@
 {
   "packages": ["packages/*"],
-  "npmClient": "yarn",
+  "npmClient": "npm",
   "version": "0.0.0",
   "command": {
     "bootstrap": {
