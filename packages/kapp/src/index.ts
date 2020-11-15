@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import BootScene from './scenes/Boot';
-// import GameScene from './scenes/Game';
-// import InputScene from './scenes/Input';
+import GameScene from './scenes/Game';
+import InputScene from './scenes/Input';
 
 const config = {
   backgroundColor: '#efefef',
@@ -12,8 +12,7 @@ const config = {
   dom: {
     createContainer: true,
   },
-  // scene: [BootScene, GameScene, InputScene],
-  scene: [BootScene],
+  scene: [BootScene, GameScene, InputScene],
   physics: {
     default: 'arcade',
     arcade: {

@@ -1,0 +1,46 @@
+import Phaser from 'phaser';
+import AnswerSection from '../ui/AnswerSection';
+import InputKana from '../ui/InputKana';
+import QuestionSection from '../ui/QuestionSection';
+import { UIConfig } from '../types';
+
+export default class Input extends Phaser.Scene {
+  gameScene: Phaser.Scene;
+  inputKana: InputKana;
+  uiConfig: UIConfig;
+  answerSection: AnswerSection;
+  questionSection: QuestionSection;
+
+  constructor() {
+    super('Input');
+  }
+
+  init({ uiConfig, isActive }: { uiConfig: UIConfig; isActive: boolean }) {
+    if (isActive === false) {
+      this.deactivate();
+    }
+    this.uiConfig = uiConfig;
+    this.gameScene = this.scene.get('Game');
+  }
+
+  create() {
+    this.answerSection = new AnswerSection(this, this.uiConfig);
+    this.questionSection = new QuestionSection(this, this.uiConfig, '(Kun) 外');
+  }
+
+  update() {}
+
+  isActive() {
+    return this.scene.isActive() && this.scene.isVisible();
+  }
+
+  activate() {
+    this.scene.setActive(true);
+    this.scene.setVisible(true);
+  }
+
+  deactivate() {
+    this.scene.setActive(false);
+    this.scene.setVisible(false);
+  }
+}

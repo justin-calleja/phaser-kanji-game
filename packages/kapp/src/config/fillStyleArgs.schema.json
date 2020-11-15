@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "fillStyleArgs",
+  "type": "object",
+  "title": "fillStyle arguments",
+  "description": "Contains specs for a rectangle",
+  "required": ["color"],
+  "properties": {
+    "color": {
+      "type": "string",
+      "description": "The hex value for the color as a string."
+    },
+    "alpha": {
+      "type": "number",
+      "default": 1,
+      "description": "Adjusts transparency"
+    }
+  }
+}

@@ -17,12 +17,15 @@
     "registry": "https://registry.yarnpkg.com"
   },
   "scripts": {
-    "build": "webpack",
+    "build": "npm run clean && webpack",
     "clean": "rimraf dist",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "validate-config": "ajv validate -s ./src/config/config.schema.json -r \"./src/config/*.schema.json\"  -d ./src/config/index.json"
   },
   "dependencies": {
-    "phaser": "^3.24.1"
+    "ajv-cli": "^3.3.0",
+    "phaser": "^3.24.1",
+    "wanakana": "^4.0.2"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^6.3.1",

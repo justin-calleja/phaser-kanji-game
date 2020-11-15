@@ -5,6 +5,7 @@
     "outDir": "./dist/",
     "noImplicitAny": true,
     "module": "es6",
+    "resolveJsonModule": true,
     "target": "es5",
     "allowJs": true
   }
