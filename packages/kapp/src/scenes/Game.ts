@@ -23,7 +23,7 @@ export default class Game extends Phaser.Scene {
   }
 
   create() {
-    this.inputScene.events.on(SUBMIT, (text) => {
+    this.inputScene.events.on(SUBMIT, (text: string) => {
       console.log('in GameScene handling user submit with text of:', text);
     });
 

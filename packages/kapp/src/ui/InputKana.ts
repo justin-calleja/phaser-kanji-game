@@ -1,4 +1,5 @@
 import Phaser, { Scene } from 'phaser';
+// @ts-ignore
 import { bind as wkBind } from 'wanakana';
 import { SUBMIT } from '../utils/eventNames';
 
@@ -36,6 +37,7 @@ export default class InputKana extends Phaser.GameObjects.DOMElement {
     this.scene = scene;
     this.resize(width, height);
     wkBind(this.node);
+    // @ts-ignore
     this.node.onkeyup = (e) => {
       if (e.key === 'Enter') {
         this.scene.events.emit(SUBMIT, e.target.value);
@@ -61,6 +63,7 @@ export default class InputKana extends Phaser.GameObjects.DOMElement {
       return this;
     }
 
+    // @ts-ignore
     const style = this.node.style;
     style.width = `${width}px`;
     style.height = `${height}px`;
@@ -69,6 +72,7 @@ export default class InputKana extends Phaser.GameObjects.DOMElement {
   }
 
   setFocus() {
+    // @ts-ignore
     this.node.focus();
     return this;
   }
