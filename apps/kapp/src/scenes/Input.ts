@@ -8,10 +8,10 @@ export default class Input extends Phaser.Scene {
   gameScene: Phaser.Scene;
   inputKana: InputKana;
   uiConfig: UIConfig;
-  answerUI = AnswerUI;
-  questionUI = QuestionUI;
+  answerUI: AnswerUI;
+  questionUI: QuestionUI;
 
-  constructor(...args) {
+  constructor() {
     super('Input');
   }
 
