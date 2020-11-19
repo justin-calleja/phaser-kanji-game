@@ -1,0 +1,151 @@
+{
+    "frames": [
+        {
+            "filename": "explosion00",
+            "frame": {
+                "w": 583,
+                "h": 536,
+                "x": 1,
+                "y": 1
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "explosion01",
+            "frame": {
+                "w": 634,
+                "h": 585,
+                "x": 1,
+                "y": 539
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "explosion02",
+            "frame": {
+                "w": 620,
+                "h": 526,
+                "x": 1,
+                "y": 1126
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "explosion03",
+            "frame": {
+                "w": 574,
+                "h": 636,
+                "x": 1,
+                "y": 1654
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "blacksmoke00",
+            "frame": {
+                "w": 362,
+                "h": 336,
+                "x": 1,
+                "y": 2292
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "blacksmoke01",
+            "frame": {
+                "w": 398,
+                "h": 364,
+                "x": 1,
+                "y": 2630
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "blacksmoke02",
+            "frame": {
+                "w": 386,
+                "h": 342,
+                "x": 1,
+                "y": 2996
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "spacerockets_001",
+            "frame": {
+                "w": 374,
+                "h": 122,
+                "x": 1,
+                "y": 3340
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "spacerockets_002",
+            "frame": {
+                "w": 309,
+                "h": 157,
+                "x": 1,
+                "y": 3464
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "spacerockets_003",
+            "frame": {
+                "w": 315,
+                "h": 118,
+                "x": 1,
+                "y": 3623
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "spacerockets_004",
+            "frame": {
+                "w": 369,
+                "h": 136,
+                "x": 1,
+                "y": 3743
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Gamma V2",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}
