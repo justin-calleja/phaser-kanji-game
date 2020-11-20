@@ -3,6 +3,8 @@ import Phaser, { Scene } from 'phaser';
 export default class Rocket extends Phaser.Physics.Arcade.Sprite {
   hasExploded: boolean = false;
   rocketFrame: string;
+  fadeOutTween: Phaser.Tweens.Tween;
+  startX: number;
 
   static scaleFactor = 0.3;
 
@@ -14,6 +16,8 @@ export default class Rocket extends Phaser.Physics.Arcade.Sprite {
     frame?: string,
   ) {
     super(scene, x, y, texture, frame);
+
+    this.startX = scene.scale.width;
 
     if (frame) {
       this.rocketFrame = frame;
@@ -29,10 +33,20 @@ export default class Rocket extends Phaser.Physics.Arcade.Sprite {
         rocket.deactivate();
       },
     );
+
+    this.fadeOutTween = scene.tweens.add({
+      targets: this,
+      alpha: 0,
+      scaleX: 0,
+      scaleY: 0,
+      duration: 500,
+      paused: true,
+      callbackScope: this,
+      onComplete: this.deactivate,
+    });
   }
 
   init() {
-    this.setOrigin(0);
     this.setScale(Rocket.scaleFactor);
     this.setVelocityX(-300);
     this.activate();
@@ -51,8 +65,21 @@ export default class Rocket extends Phaser.Physics.Arcade.Sprite {
     }
   }
 
+  fadeOut() {
+    if (this.alpha === 1 && !this.hasExploded) {
+      this.setVelocityX(0);
+      this.fadeOutTween.play();
+    }
+  }
+
+  moveToStart() {
+    this.x = this.startX;
+    this.body.x = this.startX;
+  }
+
   activate() {
     if (!this.active) {
+      this.alpha = 1;
       this.setActive(true);
       this.setVisible(true);
       this.body.enable = true;
@@ -66,6 +93,7 @@ export default class Rocket extends Phaser.Physics.Arcade.Sprite {
       this.hasExploded = false;
       this.body.enable = false;
 
+      this.moveToStart();
       this.setRocketFrame();
     }
   }
