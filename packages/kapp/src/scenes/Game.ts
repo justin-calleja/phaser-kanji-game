@@ -3,6 +3,7 @@ import InputScene from './Input';
 import { SUBMIT } from '../utils/eventNames';
 import { UIConfig } from '../types';
 import uiConfig from '../config/index.json';
+import Rocket from '../ui/Rocket';
 
 export default class Game extends Phaser.Scene {
   inputScene: InputScene;
@@ -34,7 +35,6 @@ export default class Game extends Phaser.Scene {
     if (!this.anims.get('explode')) {
       this.anims.create({
         key: 'explode',
-        // Try using: defaultTextureKey
         // defaultTextureKey: 'krockets',
         frames: [
           {
@@ -45,48 +45,21 @@ export default class Game extends Phaser.Scene {
             key: 'krockets',
             frame: 'explosion01',
           },
-          // {
-          //   key: 'krockets',
-          //   frame: 'explosion02',
-          // },
-          // {
-          //   key: 'krockets',
-          //   frame: 'explosion03',
-          // },
           {
             key: 'krockets',
             frame: 'blacksmoke00',
           },
-          // {
-          //   key: 'krockets',
-          //   frame: 'blacksmoke01',
-          // },
-          // {
-          //   key: 'krockets',
-          //   frame: 'blacksmoke02',
-          // },
         ],
-        // frames: this.anims.generateFrameNames('player', {
-        //   frames: [0, 1, 2],
-        // }),
         frameRate: 8,
-        // yoyo: true,
-        // repeat: -1,
       });
-      // explosionAnim.on('animationcomplete', function (anim, frame) => {})
     }
 
     this.inputScene.events.on(SUBMIT, (text: string) => {
       console.log('in GameScene handling user submit with text of:', text);
-      // const rocket = this.rockets.getFirst();
-      // rocket.play('explode');
     });
 
-    // this.physics.add.stat
-    // immovable: true,
-    // collideWorldBounds: true,
-
     this.rockets = this.physics.add.group({
+      classType: Rocket,
       allowGravity: false,
     });
 
@@ -98,65 +71,25 @@ export default class Game extends Phaser.Scene {
     this.physics.add.collider(
       this.hitZone,
       this.rockets,
-      (_hitZone, rocket: Phaser.Physics.Arcade.Sprite) => {
-        if (!rocket.isExploding) {
-          rocket.play('explode');
-        }
-        rocket.isExploding = true;
-        // console.log('a:', a);
-        // console.log('b:', b);
+      (_hitZone, rocket: Rocket) => {
+        rocket.explode();
       },
     );
-    // this.physics.add.overlap(
-    //   this.rockets,
-    //   this.hitZone,
-    //   function (sourceSprite, rocket) {
-    //     rocket.anims.play('explosion');
-    //     rocket.setVelocityX(50);
-    //   },
-    //   null,
-    //   this,
-    // );
 
     this.time.addEvent({
       delay: 2000,
       loop: true,
       callback: () => {
         console.log('>>>', this.rockets.getLength());
-        const rocket = this.rockets.get(
+        const rocket: Rocket = this.rockets.get(
           this.scale.width,
           100,
           'krockets',
           'spacerockets_003',
         );
-        rocket.setActive(true);
-        rocket.setVisible(true);
-        rocket.body.enable = true;
-        rocket.setFrame('spacerockets_003');
-        rocket.setScale(0.3);
-        rocket.setVelocityX(-300);
-
-        rocket.on('animationcomplete', (anim, frame) => {
-          // rocket.disableBody(true);
-
-          this.rockets.killAndHide(rocket);
-          rocket.isExploding = false;
-          rocket.body.enable = false;
-
-          // rocket.setActive(false);
-          // rocket.setVisible(false);
-        });
+        rocket.init();
       },
     });
-
-    // this.physics.add.spri
-    // rocket.setVisible(false);
-    // rocket.setScale(0.3);
-    // rocket.setAngle(-90);
-
-    // rocket.setOrigin(0, 0);
-
-    // image(0, 0, this.key);
   }
 
   update() {}
