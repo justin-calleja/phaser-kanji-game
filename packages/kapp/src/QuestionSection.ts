@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { UIConfig } from '../types';
+import { UIConfig } from './types';
 
 export default class QuestionSection {
   scene: Phaser.Scene;

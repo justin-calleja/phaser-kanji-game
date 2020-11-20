@@ -1,7 +1,7 @@
 import Phaser, { Scene } from 'phaser';
 // @ts-ignore
 import { bind as wkBind } from 'wanakana';
-import { SUBMIT } from '../utils/eventNames';
+import { SUBMIT } from './eventNames';
 
 /**
  * Based off of:

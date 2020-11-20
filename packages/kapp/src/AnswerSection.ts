@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import InputKana from './InputKana';
-import { UIConfig } from '../types';
+import { UIConfig } from './types';
 
 export default class AnswerSection {
   scene: Phaser.Scene;

@@ -1,9 +1,9 @@
 import Phaser from 'phaser';
 import InputScene from './Input';
-import { SUBMIT } from '../utils/eventNames';
+import { SUBMIT } from '../eventNames';
 import { UIConfig } from '../types';
 import uiConfig from '../config/index.json';
-import Rocket from '../ui/Rocket';
+import Rocket from '../Rocket';
 
 export default class Game extends Phaser.Scene {
   inputScene: InputScene;
@@ -24,18 +24,9 @@ export default class Game extends Phaser.Scene {
   }
 
   create() {
-    // window.mytextures = this.textures
-    // const frameNames = this.textures.get('krockets').getFrameNames();
-    // console.log('frameNames:', frameNames);
-    // (11)
-    // ["explosion00", "explosion01", "explosion02", "explosion03",
-    // "blacksmoke00", "blacksmoke01", "blacksmoke02",
-    // "spacerockets_001", "spacerockets_002", "spacerockets_003", "spacerockets_004"]
-
     if (!this.anims.get('explode')) {
       this.anims.create({
         key: 'explode',
-        // defaultTextureKey: 'krockets',
         frames: [
           {
             key: 'krockets',
@@ -80,7 +71,6 @@ export default class Game extends Phaser.Scene {
       delay: 2000,
       loop: true,
       callback: () => {
-        console.log('>>>', this.rockets.getLength());
         const rocket: Rocket = this.rockets.get(
           this.scale.width,
           100,

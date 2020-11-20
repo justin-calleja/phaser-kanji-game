@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
-import AnswerSection from '../ui/AnswerSection';
-import InputKana from '../ui/InputKana';
-import QuestionSection from '../ui/QuestionSection';
+import AnswerSection from '../AnswerSection';
+import InputKana from '../InputKana';
+import QuestionSection from '../QuestionSection';
 import { UIConfig } from '../types';
 
 export default class Input extends Phaser.Scene {
