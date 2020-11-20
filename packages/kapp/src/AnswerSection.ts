@@ -1,13 +1,15 @@
 import Phaser from 'phaser';
 import InputKana from './InputKana';
 import { UIConfig } from './types';
+import Section from './Section';
 
-export default class AnswerSection {
+export default class AnswerSection extends Section {
   scene: Phaser.Scene;
   rect: Phaser.GameObjects.Rectangle;
   input: InputKana;
 
   constructor(scene: Phaser.Scene, uiConfig: UIConfig) {
+    super();
     const rectColor = parseInt(uiConfig.answerRect.fillStyle.color);
     const rectAlpha = uiConfig.answerRect.fillStyle.alpha || 1;
     const rectX = 0;

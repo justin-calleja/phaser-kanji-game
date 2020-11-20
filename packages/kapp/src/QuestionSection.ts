@@ -1,12 +1,14 @@
 import Phaser from 'phaser';
 import { UIConfig } from './types';
+import Section from './Section';
 
-export default class QuestionSection {
+export default class QuestionSection extends Section {
   scene: Phaser.Scene;
   rect: Phaser.GameObjects.Rectangle;
   text: Phaser.GameObjects.Text;
 
   constructor(scene: Phaser.Scene, uiConfig: UIConfig, questionStr: string) {
+    super();
     const rectColor = parseInt(uiConfig.questionRect.fillStyle.color);
     const rectAlpha = uiConfig.questionRect.fillStyle.alpha || 1;
     const rectX = 0;

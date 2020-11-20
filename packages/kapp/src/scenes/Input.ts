@@ -43,4 +43,9 @@ export default class Input extends Phaser.Scene {
     this.scene.setActive(false);
     this.scene.setVisible(false);
   }
+
+  getHeight() {
+    // if ()
+    return this.answerSection.getHeight() + this.questionSection.getHeight();
+  }
 }

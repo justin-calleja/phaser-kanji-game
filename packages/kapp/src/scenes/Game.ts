@@ -4,12 +4,17 @@ import { SUBMIT } from '../eventNames';
 import { UIConfig } from '../types';
 import uiConfig from '../config/index.json';
 import Rocket from '../Rocket';
+import Spawner from '../Spawner';
+
+// no rocket should be higher than this:
+const MAX_ROCKET_HEIGHT = 200 * Rocket.scaleFactor;
 
 export default class Game extends Phaser.Scene {
   inputScene: InputScene;
   tabKey: Phaser.Input.Keyboard.Key;
   rockets: Phaser.Physics.Arcade.Group;
   hitZone: Phaser.GameObjects.Rectangle;
+  spawner: Spawner;
 
   constructor() {
     super('Game');
@@ -67,16 +72,29 @@ export default class Game extends Phaser.Scene {
       },
     );
 
+    // this.spawner = new Spawner(this.rockets,{
+    //   // maxY needs to be rocketWidth + answer and question section width
+    //   maxY: this.scale.height - (this.inputScene.getHeight() + MAX_ROCKET_HEIGHT),
+    //   // minY:
+    // });
+
     this.time.addEvent({
       delay: 2000,
       loop: true,
       callback: () => {
         const rocket: Rocket = this.rockets.get(
           this.scale.width,
-          100,
+          Phaser.Math.Between(
+            MAX_ROCKET_HEIGHT,
+            this.scale.height -
+              (this.inputScene.getHeight() + MAX_ROCKET_HEIGHT),
+          ),
           'krockets',
           'spacerockets_003',
         );
+        if (!window.rocket) {
+          window.rocket = rocket;
+        }
         rocket.init();
       },
     });

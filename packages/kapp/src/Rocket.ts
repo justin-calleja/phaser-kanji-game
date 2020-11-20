@@ -4,6 +4,8 @@ export default class Rocket extends Phaser.Physics.Arcade.Sprite {
   hasExploded: boolean = false;
   rocketFrame: string;
 
+  static scaleFactor = 0.3;
+
   constructor(
     scene: Scene,
     x: number,
@@ -30,7 +32,8 @@ export default class Rocket extends Phaser.Physics.Arcade.Sprite {
   }
 
   init() {
-    this.setScale(0.3);
+    this.setOrigin(0);
+    this.setScale(Rocket.scaleFactor);
     this.setVelocityX(-300);
     this.activate();
   }
