@@ -2,9 +2,9 @@ import Phaser from 'phaser';
 import { UIConfig } from './types';
 import Section from './Section';
 
+// TODO: rename QuestionSection to TextSection and change this also in config
 export default class QuestionSection extends Section {
   scene: Phaser.Scene;
-  rect: Phaser.GameObjects.Rectangle;
   text: Phaser.GameObjects.Text;
 
   constructor(

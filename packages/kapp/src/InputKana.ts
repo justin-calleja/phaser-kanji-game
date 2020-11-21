@@ -58,7 +58,7 @@ export default class InputKana extends Phaser.GameObjects.DOMElement {
     listener: SubmitListener,
     context?: Object,
   ): UnsubscribeFn {
-    this.submitListeners.push([listener, context]);
+      this.submitListeners.push([listener, context]);
     return () => {
       this.unsubscribeSubmitListener(listener);
     };

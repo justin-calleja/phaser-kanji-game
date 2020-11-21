@@ -3,9 +3,9 @@ import InputKana from './InputKana';
 import { SubmitListener, UIConfig, UnsubscribeFn } from './types';
 import Section from './Section';
 
+// TODO: rename AnswerSection to InputSection and change this also in config
 export default class AnswerSection extends Section {
   scene: Phaser.Scene;
-  rect: Phaser.GameObjects.Rectangle;
   input: InputKana;
 
   constructor(scene: Phaser.Scene, uiConfig: UIConfig) {
