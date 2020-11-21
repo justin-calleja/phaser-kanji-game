@@ -1,7 +1,7 @@
 import Phaser, { Scene } from 'phaser';
 // @ts-ignore
 import { bind as wkBind } from 'wanakana';
-import { SUBMIT } from './eventNames';
+import { SubmitListener, UnsubscribeFn } from './types';
 
 /**
  * Based off of:
@@ -9,6 +9,7 @@ import { SUBMIT } from './eventNames';
  */
 export default class InputKana extends Phaser.GameObjects.DOMElement {
   scene: Scene;
+  submitListeners: Array<[SubmitListener, Object?]>;
 
   static defaultStyle = {
     backgroundColor: 'transparent',
@@ -35,16 +36,40 @@ export default class InputKana extends Phaser.GameObjects.DOMElement {
     super(scene, x, y, element, { ...InputKana.defaultStyle, ...style });
 
     this.scene = scene;
+    this.submitListeners = [];
     this.resize(width, height);
     wkBind(this.node);
     // @ts-ignore
     this.node.onkeyup = (e) => {
       if (e.key === 'Enter') {
-        this.scene.events.emit(SUBMIT, e.target.value);
+        this.submitListeners.forEach(([listener, context]) => {
+          if (context) {
+            listener.call(context, e.target.value);
+          } else {
+            listener(e.target.value);
+          }
+        });
       }
     };
-
     scene.add.existing(this);
+  }
+
+  addOnSubmitListener(
+    listener: SubmitListener,
+    context?: Object,
+  ): UnsubscribeFn {
+    this.submitListeners.push([listener, context]);
+    return () => {
+      this.unsubscribeSubmitListener(listener);
+    };
+  }
+
+  unsubscribeSubmitListener(listener: SubmitListener) {
+    this.submitListeners = this.submitListeners.filter(
+      ([subscribedListener]) => {
+        return subscribedListener !== listener;
+      },
+    );
   }
 
   /**

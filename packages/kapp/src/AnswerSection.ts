@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import InputKana from './InputKana';
-import { UIConfig } from './types';
+import { SubmitListener, UIConfig, UnsubscribeFn } from './types';
 import Section from './Section';
 
 export default class AnswerSection extends Section {
@@ -37,5 +37,12 @@ export default class AnswerSection extends Section {
     );
     this.input.setOrigin(0);
     this.input.setFocus();
+  }
+
+  addOnSubmitListener(
+    listener: SubmitListener,
+    context?: Object,
+  ): UnsubscribeFn {
+    return this.input.addOnSubmitListener(listener, context);
   }
 }

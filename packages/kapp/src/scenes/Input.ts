@@ -2,7 +2,8 @@ import Phaser from 'phaser';
 import AnswerSection from '../AnswerSection';
 import InputKana from '../InputKana';
 import QuestionSection from '../QuestionSection';
-import { UIConfig } from '../types';
+import { UIConfig, UnsubscribeFn } from '../types';
+import { SUBMIT } from '../eventNames';
 
 export default class Input extends Phaser.Scene {
   gameScene: Phaser.Scene;
@@ -10,6 +11,7 @@ export default class Input extends Phaser.Scene {
   uiConfig: UIConfig;
   answerSection: AnswerSection;
   questionSection: QuestionSection;
+  unsubscribeSubmitListener: UnsubscribeFn;
 
   constructor() {
     super('Input');
@@ -25,10 +27,19 @@ export default class Input extends Phaser.Scene {
 
   create() {
     this.answerSection = new AnswerSection(this, this.uiConfig);
+    this.unsubscribeSubmitListener = this.answerSection.addOnSubmitListener(
+      this.onSubmit,
+      this,
+    );
+
     this.questionSection = new QuestionSection(this, this.uiConfig, '(Kun) 外');
   }
 
   update() {}
+
+  onSubmit(userInput: string) {
+    this.events.emit(SUBMIT, userInput);
+  }
 
   isActive() {
     return this.scene.isActive() && this.scene.isVisible();
@@ -45,7 +56,9 @@ export default class Input extends Phaser.Scene {
   }
 
   getHeight() {
-    // if ()
-    return this.answerSection.getHeight() + this.questionSection.getHeight();
+    if (this.answerSection && this.questionSection) {
+      return this.answerSection.getHeight() + this.questionSection.getHeight();
+    }
+    return -1;
   }
 }

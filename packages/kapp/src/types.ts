@@ -1,3 +1,6 @@
+export type UnsubscribeFn = () => void;
+export type SubmitListener = (userInput: string) => void;
+
 export interface UIConfig {
   questionRect: Rect;
   questionText: Text;
