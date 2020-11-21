@@ -7,7 +7,11 @@ export default class QuestionSection extends Section {
   rect: Phaser.GameObjects.Rectangle;
   text: Phaser.GameObjects.Text;
 
-  constructor(scene: Phaser.Scene, uiConfig: UIConfig, questionStr: string) {
+  constructor(
+    scene: Phaser.Scene,
+    uiConfig: UIConfig,
+    questionStr: string = '',
+  ) {
     super();
     const rectColor = parseInt(uiConfig.questionRect.fillStyle.color);
     const rectAlpha = uiConfig.questionRect.fillStyle.alpha || 1;
@@ -36,5 +40,9 @@ export default class QuestionSection extends Section {
         fill: uiConfig.questionText.color,
       },
     );
+  }
+
+  setQuestion(question: string) {
+    this.text.setText(question);
   }
 }

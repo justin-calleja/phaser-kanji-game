@@ -32,13 +32,17 @@ export default class Input extends Phaser.Scene {
       this,
     );
 
-    this.questionSection = new QuestionSection(this, this.uiConfig, '(Kun) 外');
+    this.questionSection = new QuestionSection(this, this.uiConfig);
   }
 
   update() {}
 
   onSubmit(userInput: string) {
     this.events.emit(SUBMIT, userInput);
+  }
+
+  setQuestion(question: string) {
+    this.questionSection.setQuestion(question);
   }
 
   isActive() {

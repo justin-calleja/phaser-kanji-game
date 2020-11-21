@@ -53,6 +53,7 @@ export default class Game extends Phaser.Scene {
 
     this.inputScene.events.on(SUBMIT, (text: string) => {
       console.log('in GameScene handling user submit with text of:', text);
+      // this.inputScene.setQuestion('(Kun) 外')
       // this.rockets.getChildren().forEach((rocket: Rocket) => {
       //   rocket.fadeOut();
       // });
