@@ -2,7 +2,6 @@ import Phaser, { Scene } from 'phaser';
 
 export default class Rocket extends Phaser.Physics.Arcade.Sprite {
   hasExploded: boolean = false;
-  rocketFrame: string;
   fadeOutTween: Phaser.Tweens.Tween;
   startX: number;
 
@@ -13,15 +12,11 @@ export default class Rocket extends Phaser.Physics.Arcade.Sprite {
     x: number,
     y: number,
     texture: string | Phaser.Textures.Texture,
-    frame?: string,
+    public rocketFrame?: string,
   ) {
-    super(scene, x, y, texture, frame);
+    super(scene, x, y, texture, rocketFrame);
 
     this.startX = scene.scale.width;
-
-    if (frame) {
-      this.rocketFrame = frame;
-    }
 
     this.on(
       'animationcomplete',

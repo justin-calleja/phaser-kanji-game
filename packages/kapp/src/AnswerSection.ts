@@ -5,10 +5,9 @@ import Section from './Section';
 
 // TODO: rename AnswerSection to InputSection and change this also in config
 export default class AnswerSection extends Section {
-  scene: Phaser.Scene;
   input: InputKana;
 
-  constructor(scene: Phaser.Scene, uiConfig: UIConfig) {
+  constructor(public scene: Phaser.Scene, uiConfig: UIConfig) {
     super();
     const rectColor = parseInt(uiConfig.answerRect.fillStyle.color);
     const rectAlpha = uiConfig.answerRect.fillStyle.alpha || 1;
@@ -20,7 +19,6 @@ export default class AnswerSection extends Section {
         : uiConfig.answerRect.width;
     const rectHeight = uiConfig.answerRect.height;
 
-    this.scene = scene;
     this.rect = scene.add
       .rectangle(rectX, rectY, rectWidth, rectHeight, rectColor, rectAlpha)
       .setOrigin(0);

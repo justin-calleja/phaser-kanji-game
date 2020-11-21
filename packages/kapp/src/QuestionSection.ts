@@ -4,11 +4,10 @@ import Section from './Section';
 
 // TODO: rename QuestionSection to TextSection and change this also in config
 export default class QuestionSection extends Section {
-  scene: Phaser.Scene;
   text: Phaser.GameObjects.Text;
 
   constructor(
-    scene: Phaser.Scene,
+    public scene: Phaser.Scene,
     uiConfig: UIConfig,
     questionStr: string = '',
   ) {
@@ -26,7 +25,6 @@ export default class QuestionSection extends Section {
         : uiConfig.questionRect.width;
     const rectHeight = uiConfig.questionRect.height;
 
-    this.scene = scene;
     this.rect = scene.add
       .rectangle(rectX, rectY, rectWidth, rectHeight, rectColor, rectAlpha)
       .setOrigin(0);
