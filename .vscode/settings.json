@@ -1,4 +1,5 @@
 {
+  // "workbench.colorTheme": "Cobalt2",,
   "workbench.colorCustomizations": {
     "[Cobalt2]": {
       "titleBar.activeBackground": "#ff8707",

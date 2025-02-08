@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import AnswerSection from '../AnswerSection';
-import InputKana from '../InputKana';
+import type InputKana from '../InputKana';
 import QuestionSection from '../QuestionSection';
 import { UIConfig, UnsubscribeFn } from '../types';
 import { SUBMIT } from '../eventNames';

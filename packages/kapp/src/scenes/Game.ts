@@ -1,10 +1,10 @@
 import Phaser from 'phaser';
-import InputScene from './Input';
+import type InputScene from './Input';
 import { SUBMIT } from '../eventNames';
-import { UIConfig } from '../types';
+import type { UIConfig } from '../types';
 import uiConfig from '../config/index.json';
 import Rocket from '../Rocket';
-import Spawner from '../Spawner';
+import type Spawner from '../Spawner';
 
 // The "dead zone" is an area of the screen where rockets cannot be spawned.
 // These will be at the top and bottom to give some breathing room.
